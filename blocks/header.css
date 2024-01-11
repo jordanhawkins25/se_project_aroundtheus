@@ -2,3 +2,8 @@
     margin-top: 45px;
     max-width: 880px;
 }
+
+.header__line {
+    width: 100%;
+    padding-top: 74px;
+}

@@ -29,8 +29,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
     align-items: center;
@@ -43,4 +43,5 @@
     background: transparent url(../images/like-button.svg) center;
     width: 21px;
     height: 18px;
+    border: none;
 }
