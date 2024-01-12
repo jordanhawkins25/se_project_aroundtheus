@@ -10,6 +10,8 @@
         "title button"
         "description description";
     grid-template-columns: minmax(auto, 373px), auto;
+    font-size: 42px;
+    font-weight: 500;
 }
 
 .profile__edit-button {
@@ -17,6 +19,11 @@
     height: 24px;
     width: 24px;
     grid-area: button;
+    border: 1px solid white
+}
+
+.profile__edit-button:hover {
+    border: 1px solid gray;
 }
 
 .profile__add-button {
@@ -25,6 +32,12 @@
     height: 50px;
     margin-left: auto;
     border-radius: 2px;
+    border: 2px solid #FFFFFF;
+}
+
+.profile__add-button:hover {
+    cursor: pointer;
+    border: 2px solid gray;
 }
 
 .profile__title {

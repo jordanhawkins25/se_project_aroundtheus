@@ -39,9 +39,20 @@
     border-bottom-right-radius: 10px;
 }
 
+.card__title {
+    font-size: 24px;
+    font-weight: 900;
+}
+
 .card__like-button {
     background: transparent url(../images/like-button.svg) center;
     width: 21px;
     height: 18px;
     border: none;
+    color: black;
+}
+
+.card__like-button:hover {
+    color: gray;
+    cursor: pointer;
 }
