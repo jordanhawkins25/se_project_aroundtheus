@@ -19,7 +19,8 @@
     height: 24px;
     width: 24px;
     grid-area: button;
-    border: 1px solid white
+    border: 1px solid white;
+    align-self: center;
 }
 
 .profile__edit-button:hover {
