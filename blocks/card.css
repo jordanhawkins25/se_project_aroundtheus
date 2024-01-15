@@ -51,9 +51,10 @@
     height: 18px;
     border: none;
     color: black;
+    background-color: white;
 }
 
 .card__like-button:hover {
-    color: gray;
+    color: #545454;
     cursor: pointer;
 }
