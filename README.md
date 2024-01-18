@@ -11,6 +11,6 @@ The Around The U.S. webpage is a project designed to practice when and where to 
 
 https://jordanhawkins25.github.io/se_project_aroundtheus/
 
-# Video limk
+# Video link
 
 https://clipchamp.com/watch/BatIlgaIdNM
