@@ -5,6 +5,10 @@
     margin-bottom: 40px;
 }
 
+.header__logo {
+    margin-bottom: 41px;
+}
+
 @media screen and (max-width:620px) {
     .header{
         margin-top: 28px;
