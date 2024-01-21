@@ -111,14 +111,7 @@
         max-width: 196px;
     }
 
-    .profile__description {
-        flex-wrap: nowrap;
-        justify-content: center;
-        font-size: 14px;
-    }
-
     .profile__add-button {
-        width: 100%;
         min-width: 282px;
         margin: 0;
         margin-top: 20px;
