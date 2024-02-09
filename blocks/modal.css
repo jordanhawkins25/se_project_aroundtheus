@@ -63,6 +63,11 @@
     border: none;
 }
 
+.modal__button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
 .modal__close {
     position: absolute;
     background-color: transparent;
@@ -75,6 +80,11 @@
     left: calc(100% + 5px);
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.modal__close:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
 
 @media screen and (max-width:630px) {
