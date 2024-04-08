@@ -35,11 +35,29 @@ const profileTitleInput = document.querySelector('#profile-title-input');
 const profileDescriptionInput = document.querySelector('#profile-description-input');
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector('.card__list');
-const cardTemplate = document.querySelector('#card-template').content.firstElementChild;
+const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+const cardElement = document.querySelector('.card');
 
 /*Functions*/
 function closePopop() {
   profileEditModal.classList.remove('modal_opened');
+}
+
+function getCardElement(cardData) {
+    console.log(cardData.name);
+  // clone the template element with all its content and store it in a cardElement variable
+   const cardElement = cardTemplate.cloneNode(true);
+  // access the card title and image and store them in variables
+  const cardImageEl = cardElement.querySelector('.card__image');
+  const cardTitleEl = cardElement.querySelector('.card__title');
+  // set the path to the image to the link field of the object
+  
+  // set the image alt text to the name field of the object
+  imageAltText.textContent = cardData.name;
+  // set the card title to the name field of the object, too
+  cardTitleEl.textContent = cardData.name;
+  // return the ready HTML element with the filled-in data
+   return cardElement;
 }
 
 /*Event Handlers*/
@@ -48,7 +66,7 @@ function handleProfileEditSubmit (e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopop();
-};
+}
 
 /*Event Listeners*/
 profileEditButton.addEventListener('click', () => {
@@ -64,17 +82,5 @@ modalCloseButton.addEventListener('click', closePopop);
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
-    console.log(cardData.name);
-  // clone the template element with all its content and store it in a cardElement variable
-   const cardElement = cardTemplate.cloneNode(true);
-  // access the card title and image and store them in variables
-  const cardImageEl = cardElement.querySelector('card__image');
-  const cardTitleEl = cardElement.querySelector('card__title');
-  // set the path to the image to the link field of the object
-  // set the image alt text to the name field of the object
-  // set the card title to the name field of the object, too
-  cardTitleEl.textContent = cardData.name;
-  // return the ready HTML element with the filled-in data
-  cardListEl.append(cardElement);
+  const cardElement = getCardElement(cardData);
 });
-
