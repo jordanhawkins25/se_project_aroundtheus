@@ -34,10 +34,8 @@ const profileDescription = document.querySelector('.profile__description');
 const profileTitleInput = document.querySelector('#profile-title-input');
 const profileDescriptionInput = document.querySelector('#profile-description-input');
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector('.card__list');
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
-const cardElement = document.querySelector('.card');
-const imageAltText = document.querySelector('.card');
+const cardListEl = document.querySelector(".cards__list");
 
 /*Functions*/
 function closePopop() {
@@ -45,18 +43,13 @@ function closePopop() {
 }
 
 function getCardElement(cardData) {
-  // clone the template element with all its content and store it in a cardElement variable
-   const cardElement = cardTemplate.cloneNode(true);
-  // access the card title and image and store them in variables
+  const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector('.card__image');
-  cardImageEl.src = cardData.link;
-  // set the path to the image to the link field of the object
-  const cardImageAltEl = cardElement.querySelector(".card__image");
-  // set the image alt text to the name field of the object
-  imageAltText.textContent = cardData.name;
-  // set the card title to the name field of the object, too
+  const cardTitleEl = cardElement.querySelector('.card__title')
+  cardImageEl.setAttribute("alt", cardData.link);
+  cardImageEl.setAttribute("alt", cardData.name);
   cardTitleEl.textContent = cardData.name;
-  // return the ready HTML element with the filled-in data
+  
    return cardElement;
 }
 
@@ -68,6 +61,12 @@ function handleProfileEditSubmit (e) {
   closePopop();
 }
 
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+
+  cardListEl.prepend(cardElement);
+});
+
 /*Event Listeners*/
 profileEditButton.addEventListener('click', () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -76,11 +75,11 @@ profileEditButton.addEventListener('click', () => {
   profileEditModal.classList.add('modal_opened');
 });
 
-modalCloseButton.addEventListener('click', closePopop);
+modalCloseButton.addEventListener("click", () => {
+  closePopop();
+});
+
 
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-});
