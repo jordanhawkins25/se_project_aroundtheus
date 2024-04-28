@@ -75,9 +75,7 @@ profileEditButton.addEventListener('click', () => {
   profileEditModal.classList.add('modal_opened');
 });
 
-profileCloseButton.addEventListener("click", () => {
-  closePopop();
-});
+profileCloseButton.addEventListener("click", closePopop);
 
 
 
