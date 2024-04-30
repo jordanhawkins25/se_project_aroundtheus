@@ -118,12 +118,12 @@
 
     .modal__form-input {
         width: 100%;
-        margin-bottom: 45px;
+        margin-bottom: 30px;
         padding-bottom: 5px;
     }
 
     .modal__form-input:last-of-type {
-        margin-bottom: 20px;
+        margin-bottom: 35px;
     }
 
 
