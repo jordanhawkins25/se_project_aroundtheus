@@ -39,12 +39,15 @@
 }
 
 .card__like-button {
-    background: transparent url(../images/like-button.svg) center;
+    background: transparent url("../images/like-button.svg") center no-repeat;
     width: 21px;
     height: 18px;
     border: none;
-    color: black;
-    background-color: white;
+    background-size: 21px 18px;
+}
+
+.card__like-button_active {
+    background-image: url("../images/like-active.svg");
 }
 
 .card__like-button:hover {

@@ -1,8 +1,6 @@
 .header {
     margin-top: 45px;
     max-width: 880px;
-    border-bottom: solid 1px rgb(84 84 84 / .7);
-    margin-bottom: 40px;
 }
 
 .header__logo {
