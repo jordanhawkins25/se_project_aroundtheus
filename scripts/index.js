@@ -32,11 +32,12 @@ const cardAddModal = document.querySelector("#add-modal");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
 const profileTitleEl = document.querySelector('.profile__title');
 const profileDescriptionEl = document.querySelector(".profile__description");
-const profileEditForm = document.querySelector("#edit-profile-form");
+const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+const addCardFormEl = cardAddModal.querySelector("#edit-profile-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardAddButton = document.querySelector("#add-button")
 const cardAddCloseBtn = cardAddModal.querySelector(".modal__close");
-const cardAddForm = document.querySelector("#add-card-form");
+const cardAddForm = document.querySelector(".modal__input_type_url");
 
 
 
@@ -49,6 +50,10 @@ const profileTitleInput = profileEditForm.querySelector(".modal__input_type_name
 const profileDescriptionInput = profileEditForm.querySelector(".modal__input_type_description");
 
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+
+
+const cardTitleInput = addCardFormEl.querySelector("#modal-type-title");
+const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
 /*Functions*/
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -66,19 +71,24 @@ function getCardView(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const imageEl = cardEl.querySelector('.card__image');
   const cardTitleEl = cardEl.querySelector('.card__title');
+  //find delete button
+
+  //add event listener to delete button
+  //cardElement.remove();
+
+  //add click listener to the cardImage element 
+  // openModal with previewImageModal
+
+  const likeButtons = cardEl.querySelectorAll(".card__like-button");
+likeButtons.forEach(likeButton => {
+ likeButton.addEventListener('click', () => {
+  likeButton.classList.toggle("card__like-button_active");
+});
+});
+ 
   imageEl.src = cardData.link;
   imageEl.alt = cardData.title;
   cardTitleEl.textContent = cardData.name;
-  
-  
-  //add event listener delete
-   // cardEl.remove();
-
-   //add event listener image
-   //open modal 
-   //find image element inside modal
-   //replace src with card link
-   //replace alt with card title
 
   return cardEl;
 }
@@ -113,8 +123,18 @@ profileEditForm.addEventListener("submit", (event) => {
   profileTitleEl.textContent = titleValue;
   profileDescriptionEl.textContent = descriptionValue;
 
-  closeModal();
+  closeModal(profileEditModal);
 });
+
+function handleAddFormSubmit(event) {
+  event.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  const cardEl = getCardView({
+   name, link 
+  });
+  closeModal(cardAddModal);
+};
 
 cardAddForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -133,12 +153,7 @@ initialCards.forEach(function (cardData) {
   renderCard(cardView, cardListEl);
 });
 
-const likeButtons = document.querySelectorAll(".card__like-button");
-likeButtons.forEach(likeButton => {
- likeButton.addEventListener('click', () => {
-  
-})
-})
+
 
 
 
