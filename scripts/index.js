@@ -33,7 +33,7 @@ const profileCloseButton = profileEditModal.querySelector(".modal__close");
 const profileTitleEl = document.querySelector('.profile__title');
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
-const addCardFormEl = cardAddModal.querySelector("#edit-profile-form");
+const addCardFormEl = cardAddModal.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardAddButton = document.querySelector("#add-button")
 const cardAddCloseBtn = cardAddModal.querySelector(".modal__close");
@@ -48,12 +48,14 @@ const cardAddForm = document.querySelector(".modal__input_type_url");
 const profileTitleInput = profileEditForm.querySelector(".modal__input_type_name");
 
 const profileDescriptionInput = profileEditForm.querySelector(".modal__input_type_description");
+const cardTitleInput = addCardFormEl.querySelector(".modal__input_type_title");
+const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
 
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 
-const cardTitleInput = addCardFormEl.querySelector("#modal-type-title");
-const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
+
+
 /*Functions*/
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -115,6 +117,8 @@ cardAddCloseBtn.addEventListener("click", () => {
   closeModal(cardAddModal);
 });
 
+profileEditForm.addEventListener("submit", handleAddFormSubmit);
+
 profileEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const titleValue = profileTitleInput.value;
@@ -128,25 +132,14 @@ profileEditForm.addEventListener("submit", (event) => {
 
 function handleAddFormSubmit(event) {
   event.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  const cardEl = getCardView({
-   name, link 
-  });
+  const titleValue = cardTitleInput.value;
+  const urlValue = cardUrlInput.value;
+  console.log("titleValue", titleValue);
+  return console.log("urlValue", urlValue);
+  const cardEl = getCardView();
   closeModal(cardAddModal);
 };
 
-cardAddForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = e.target.title.value;
-  const link = e.target.link.value;
-  const cardView = getCardView({
-    name,
-    link
-  });
-  renderCard(cardView, cardListEl);
-  closeModal(cardAddModal);
-});
 
 initialCards.forEach(function (cardData) {
   const cardView = getCardView(cardData);
