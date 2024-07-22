@@ -12,15 +12,12 @@
 @media screen and (max-width:620px) {
     .header{
         margin-top: 28px;
-        margin-bottom: 42px;
-        max-width: 100%;
-        min-height: 56px;
     }
 
     .header__logo {
-        
-        max-width: 320px;
-        min-height: 24px;
+        margin-left: 27px;
+        width: 126px;
+        height: 24px;
         margin-bottom: 32px;
     }
 }
