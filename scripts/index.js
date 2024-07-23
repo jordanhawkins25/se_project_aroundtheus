@@ -29,8 +29,6 @@ const initialCards = [
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-modal");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
-const profileTitleEl = document.querySelector('.profile__title');
-const profileDescriptionEl = document.querySelector(".profile__description");
 const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
 const cardAddModal = document.querySelector("#add-modal");
 const addCardFormEl = cardAddModal.querySelector("#add-card-form");
@@ -46,15 +44,13 @@ const imageModal = document.querySelector("#modal-image-preview")
 
 
 
-
+const profileTitleEl = document.querySelector('.profile__title');
+const profileDescriptionEl = document.querySelector(".profile__description");
 const profileTitleInput = profileEditForm.querySelector(".modal__input_type_name");
-
 const profileDescriptionInput = profileEditForm.querySelector(".modal__input_type_description");
 const cardTitleInput = addCardFormEl.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
-
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
-
 const imagePreviewModal = document.querySelector(".modal__image-preview")
 
 
@@ -87,8 +83,6 @@ function getCardElement(cardData) {
   });
 
   openModal(imageEl);
-//add click listener to the cardImage element
-  // openModal with previewImageModal
   
  const likeButtons = cardEl.querySelectorAll(".card__like-button");
 likeButtons.forEach(likeButton => {
@@ -139,7 +133,7 @@ addCardFormEl.addEventListener("submit", handleAddFormSubmit);
 function handleProfileEditFormSubmit(event) {
   event.preventDefault();
   profileTitleEl.textContent = profileTitleInput.value;
-  profileDescriptionEl,textContent = profileDescriptionInput.value;
+  profileDescriptionEl.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
 };
 
