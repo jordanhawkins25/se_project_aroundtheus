@@ -78,7 +78,7 @@ function getCardElement(cardData) {
   imageEl.addEventListener("click", () => {
    imagePreviewModal.querySelector(".modal__image-preview").src = cardData.link;
    imagePreviewModal.querySelector(".modal__image-preview").alt = cardData.name;
-   imagePreviewModal.querySelector(".modal__image-title").textContent = name;
+   imagePreviewModal.querySelector(".modal__image-title").textContent = cardData.name;
    openModal(imagePreviewModal);
   });
 
@@ -141,9 +141,11 @@ function handleAddFormSubmit(event) {
   event.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  renderCard({name, link}, cardListEl);
+  const cardData = { name, link };
+  const cardEl = getCardElement(cardData);
+  renderCard(cardEl, cardListEl);
   closeModal(cardAddModal);
-};
+}
 
 initialCards.forEach(function (cardData) {
   const cardView = getCardElement(cardData);
