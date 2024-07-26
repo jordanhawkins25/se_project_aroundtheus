@@ -84,12 +84,11 @@ function getCardElement(cardData) {
 
   openModal(imageEl);
   
- const likeButtons = cardEl.querySelectorAll(".card__like-button");
-likeButtons.forEach(likeButton => {
+  const likeButton = cardEl.querySelector(".card__like-button");
  likeButton.addEventListener('click', () => {
   likeButton.classList.toggle("card__like-button_active");
 });
-});
+
  
   imageEl.src = cardData.link;
   imageEl.alt = cardData.title;
@@ -151,9 +150,3 @@ initialCards.forEach(function (cardData) {
   const cardView = getCardElement(cardData);
   renderCard(cardView, cardListEl);
 });
-
-
-
-
-
-

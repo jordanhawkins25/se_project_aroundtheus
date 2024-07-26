@@ -7,8 +7,10 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     padding: 0 19px;
-    display: none;
+    display: flex;
     opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s, opacity 0.5s linear;
 }
 
 
@@ -20,8 +22,6 @@
 
 
 .modal__content {
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    
     background-color: white;
     padding: 34px 36px 36px;
     border-radius: 10px;
@@ -188,6 +188,6 @@
         height: 46px;
         width: 100%;
         font-size: 14px;
-        margin: 0;
+        margin-top: 48px;
     }
 }
