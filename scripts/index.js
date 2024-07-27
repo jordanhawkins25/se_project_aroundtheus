@@ -37,7 +37,7 @@ const cardAddButton = document.querySelector("#add-button")
 const cardAddCloseBtn = cardAddModal.querySelector(".modal__close");
 const cardAddForm = document.querySelector(".modal__input_type_url");
 const imagePreviewCloseBtn = document.querySelector("#preview-close-btn");
-const imageModal = document.querySelector("#modal-image-preview")
+
 
 
 
@@ -51,7 +51,8 @@ const profileDescriptionInput = profileEditForm.querySelector(".modal__input_typ
 const cardTitleInput = addCardFormEl.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
-const imagePreviewModal = document.querySelector(".modal__image-preview")
+const imagePreviewModal = document.querySelector(".modal__image-preview");
+const imageModal = document.querySelector(".modal_image-preview");
 
 
 /*Functions*/
