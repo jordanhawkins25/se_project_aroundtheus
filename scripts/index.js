@@ -1,29 +1,3 @@
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },    
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  { 
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  }    
-];
 
 /*Elements*/
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -35,7 +9,7 @@ const addCardFormEl = cardAddModal.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardAddButton = document.querySelector("#add-button")
 const cardAddCloseBtn = cardAddModal.querySelector(".modal__close");
-const cardAddForm = document.querySelector(".modal__input_type_url");
+
 const imageModal = document.querySelector(".modal-preview");
 const imagePreviewCloseBtn = document.querySelector("#preview-close-btn");
 
@@ -83,8 +57,6 @@ function getCardElement(cardData) {
    imagePreviewModal.querySelector(".modal__image-title").textContent = cardData.name;
    openModal(imagePreviewModal);
   });
-
-  openModal(imageEl);
   
   const likeButton = cardEl.querySelector(".card__like-button");
  likeButton.addEventListener('click', () => {
@@ -148,7 +120,7 @@ function handleAddFormSubmit(event) {
   closeModal(cardAddModal);
 }
 
-initialCards.forEach(function (cardData) {
-  const cardView = getCardElement(cardData);
-  renderCard(cardView, cardListEl);
-});
+//initialCards.forEach(function (cardData) {
+  //const cardView = getCardElement(cardData);
+  //renderCard(cardView, cardListEl);
+//});
