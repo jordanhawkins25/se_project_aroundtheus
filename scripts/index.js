@@ -52,7 +52,7 @@ const cardTitleInput = addCardFormEl.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardFormEl.querySelector(".modal__input_type_url");
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const imagePreviewModal = document.querySelector(".modal__image-preview");
-const imageModal = document.querySelector(".modal_image-preview");
+const imageModal = document.querySelector(".modal-preview");
 
 
 /*Functions*/
