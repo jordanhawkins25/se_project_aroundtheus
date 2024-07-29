@@ -135,8 +135,8 @@ function handleAddFormSubmit(event) {
   const link = cardUrlInput.value;
   const cardData = { name, link };
   const cardEl = getCardElement(cardData);
-  EventTarget.target.reset();
   renderCard(cardEl, cardListEl);
+  addCardForm.target.reset();
   closeModal(cardAddModal);
 }
 
