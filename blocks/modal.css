@@ -85,6 +85,12 @@
     opacity: 80%;
 }
 
+.modal__button_disabled {
+    opacity: 20%;
+    border: 1px;
+    cursor: not-allowed;
+}
+
 .modal__close {
     position: absolute;
     background-color: transparent;

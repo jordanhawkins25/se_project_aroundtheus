@@ -28,7 +28,7 @@ function checkInputValidity(formEl, inputEl, options) {
     return !inputList.every((inputEl) => inputEl.validity.valid)
  }
 
- function toggleBiuttonState(inputEls, submitButton, {inactiveButtonClass}) {
+ function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
     
      if(hasInvalidInput(inputEls)) {
         submitButton.classList.add(inactiveButtonClass)
@@ -47,7 +47,7 @@ function setEventListeners(formEl, options) {
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", () => {
       checkInputValidity(formEl, inputEl, options);
-      toggleBiuttonState(inputEls, submitButton, options);
+      toggleButtonState(inputEls, submitButton, options);
     });
   });
 }
@@ -60,10 +60,22 @@ function enableValidation(options) {
         });
 
         setEventListeners(formEl, options);
-       //look for all input inside form
+        //look for all input inside form
+        const inputEls = formEl.querySelectorAll(".modal__form");
        //loop through all the inputs to see if all are valid
+       function checkInputValidity(formEl, inputEl, options) {
+        if(!inputEl.validity.valid) {
+            return showInputError(formEl, inputEl, options);
+        }  
+            hideInputError(formEl, inputEl, options);
+        
+     }
        //if input is noit valid
+       function hasInvalidInput(inputList) {
+        return !inputList.every((inputEl) => inputEl.validity.valid)
+     }
        //get validation message
+      
        //add error class to input 
        //display error message
        //disable button
@@ -76,11 +88,11 @@ function enableValidation(options) {
 }
 
 const config = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button",
+    formSelector: ".modal__form",
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
     inactiveButtonClass: "modal__button_disabled",
     inputErrorClass: "modal__input_type_error",
-    errorClass: "popup__error_visible" 
+    errorClass: "modal__error_visible" 
 };
 enableValidation(config);
