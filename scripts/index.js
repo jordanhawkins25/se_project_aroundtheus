@@ -66,6 +66,28 @@ function renderCard(cardEl, container) {
   container.prepend(cardEl);
 }
 
+let currentModal = null;
+
+function handleEscKey(evt) {
+  if(evt.key === "Escape" && currentModal) {
+    closeModal(currentModal);
+  }
+}
+
+function handleOverlayClick(evt) {
+  if (currentModal && evt.target === currentModal) {
+    closeModal(currentModal);
+  }
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  currentModal = modal;
+
+document.addEventListener("keydown", handleEscKey);
+  document.addEventListener("click", handleOverlayClick);
+}
+
 function getCardElement(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const imageEl = cardEl.querySelector(".card__image");
