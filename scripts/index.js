@@ -55,48 +55,42 @@ const imagePreviewModal = document.querySelector(".modal-preview");
 
 /*Functions*/
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
+  modal.classList.remove(".modal_opened");
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_opened");
+  modal.classList.add(".modal_opened");
 }
 
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
 }
 
-let currentModal = null;
 
 function handleEscKey(evt) {
-  if (evt.key === "Escape" && currentModal) {
-    closeModal(currentModal);
+  if (evt.key === "Escape") {
+      const modal = document.querySelector(".modal_opened");
+      closeModal(modal);
   }
 }
 
 function handleOverlayClick(evt) {
-  if (currentModal && evt.target === currentModal) {
-    closeModal(currentModal);
+  if (evt.target.classList.contains(".modal_opened")) {
+      closeModal(evt.target);
   }
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_opened");
-  currentModal = modal;
-
+  modal.classList.add(".modal_opened");
   document.addEventListener("keydown", handleEscKey);
-  document.addEventListener("click", handleOverlayClick);
+  modal.addEventListener("click", handleOverlayClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove(".modal_opened");
-  currentModal = modal;
-
   document.removeEventListener("keydown", handleEscKey);
-  document.removeEventListener("click", handleOverlayClick);
+  modal.removeEventListener("click", handleOverlayClick);
 }
-
-
 
 function getCardElement(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
