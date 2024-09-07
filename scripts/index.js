@@ -2,7 +2,7 @@ const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },    
+  },
   {
     name: "Lake Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
@@ -11,7 +11,7 @@ const initialCards = [
     name: "Bald Mountains",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
   },
-  { 
+  {
     name: "Latemar",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
   },
@@ -22,7 +22,7 @@ const initialCards = [
   {
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  }    
+  },
 ];
 
 /*Elements*/
@@ -69,7 +69,7 @@ function renderCard(cardEl, container) {
 let currentModal = null;
 
 function handleEscKey(evt) {
-  if(evt.key === "Escape" && currentModal) {
+  if (evt.key === "Escape" && currentModal) {
     closeModal(currentModal);
   }
 }
@@ -84,9 +84,19 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   currentModal = modal;
 
-document.addEventListener("keydown", handleEscKey);
+  document.addEventListener("keydown", handleEscKey);
   document.addEventListener("click", handleOverlayClick);
 }
+
+function closeModal(modal) {
+  modal.classList.remove(".modal_opened");
+  currentModal = modal;
+
+  document.removeEventListener("keydown", handleEscKey);
+  document.removeEventListener("click", handleOverlayClick);
+}
+
+
 
 function getCardElement(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
