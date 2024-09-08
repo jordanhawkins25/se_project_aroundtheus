@@ -75,19 +75,19 @@ function handleEscKey(evt) {
 }
 
 function handleOverlayClick(evt) {
-  if (evt.target.classList.contains(".modal_opened")) {
+  if (evt.target.classList.contains("modal_opened")) {
       closeModal(evt.target);
   }
 }
 
 function openModal(modal) {
-  modal.classList.add(".modal_opened");
+  modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscKey);
   modal.addEventListener("click", handleOverlayClick);
 }
 
 function closeModal(modal) {
-  modal.classList.remove(".modal_opened");
+  modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscKey);
   modal.removeEventListener("click", handleOverlayClick);
 }
