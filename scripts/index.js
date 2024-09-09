@@ -54,13 +54,6 @@ const cardTemplate = document
 const imagePreviewModal = document.querySelector(".modal-preview");
 
 /*Functions*/
-function closeModal(modal) {
-  modal.classList.remove(".modal_opened");
-}
-
-function openModal(modal) {
-  modal.classList.add(".modal_opened");
-}
 
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
