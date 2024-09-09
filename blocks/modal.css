@@ -39,7 +39,6 @@
     color: black;
     font-weight: 900;
     font-size: 24px;
-    margin-bottom: 54px;
     line-height: 30px;
     margin-top: 0;
 }
@@ -47,6 +46,7 @@
 .modal__form {
     position: relative;
     max-width: 100%;
+    overflow: none;
 }
 
 
@@ -68,16 +68,14 @@
 }
 
 .modal__input_type_error {
-   position: absolute;
     border-color: #FF0000;
     opacity: 1;
-    top: 333px;
-    left: 461px;
+    
 }
 
 .modal__input_type_error.active {
-visibility: visible;
-opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -91,7 +89,7 @@ opacity: 1;
     font-size: 18px;
     border-radius: 2px;
     border: none;
-
+    
 }
 
 .modal__button:hover {
