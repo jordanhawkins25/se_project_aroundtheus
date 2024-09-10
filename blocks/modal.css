@@ -131,8 +131,10 @@
 }
 
 .modal__image-preview {
-    max-height: 100%;
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .modal__image-title {
@@ -202,7 +204,7 @@
     }
 
     .modal__heading {
-        margin-bottom: 75px;
+        margin-bottom: 35px;
         margin-top: 0;
         font-size: 18px;
         line-height: 22px;
