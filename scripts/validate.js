@@ -56,7 +56,7 @@ function enableValidation(options) {
       e.preventDefault();
     });
 
-    setEventListeners(formEl, options);
+    setEventListeners(formEl, rest);
     //look for all input inside form
     //loop through all the inputs to see if all are valid
     //if input is noit valid
@@ -64,18 +64,18 @@ function enableValidation(options) {
     //add error class to input
     //display error message
     //disable button
-    //if all inputs are vlid
+    //if all inputs are valid
     //enable button
     //reset error message
   });
 }
 
-const config = {
+
+enableValidation({
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
-};
-enableValidation(config);
+});

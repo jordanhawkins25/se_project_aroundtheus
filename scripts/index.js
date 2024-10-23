@@ -1,3 +1,6 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,6 +28,13 @@ const initialCards = [
   },
 ];
 
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+}
+
+
+
 /*Elements*/
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-modal");
@@ -50,8 +60,11 @@ const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
 const cardTemplate = document
   .querySelector("#card-template")
-  .content.querySelector(".card");
+  .content.querySelector(".card")
+  .cloneNode(true);
 const imagePreviewModal = document.querySelector(".modal-preview");
+const cardSelector = "#card-template";
+
 
 /*Functions*/
 
@@ -85,14 +98,33 @@ function closeModal(modal) {
   modal.removeEventListener("click", handleOverlayClick);
 }
 
+//validation
+
+const validationSettings = {
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
+    inactiveButtonClass: "modal__button_disabled",
+    inputErrorClass: "modal__input_type_error",
+    errorClass: "modal__error_visible",
+}
+
+const editFormEl = profileEditModal.querySelector("#edit-profile-form");
+const addFormEl = cardAddModal.querySelector("#add-card-form");
+
+const editFormValidator = new FormValidator(validationSettings, editFormEl);
+const addFormValidator = new FormValidator(validationSettings, addFormEl);
+
+//editFormValidator.enableValidation();
+//addFormValidator.enableValidation();
+
 function getCardElement(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const imageEl = cardEl.querySelector(".card__image");
   const cardTitleEl = cardEl.querySelector(".card__title");
   const deleteButton = cardEl.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", () => {
-    cardEl.remove();
-  });
+  const likeButton = cardEl.querySelector(".card__like-button");
+
+ //Event listeners 
   imageEl.addEventListener("click", () => {
     imagePreviewModal.querySelector(".modal__image-preview").src =
       cardData.link;
@@ -103,9 +135,12 @@ function getCardElement(cardData) {
     openModal(imagePreviewModal);
   });
 
-  const likeButton = cardEl.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
+  });
+
+  deleteButton.addEventListener("click", () => {
+    cardEl.remove();
   });
 
   imageEl.src = cardData.link;
@@ -160,6 +195,7 @@ function handleAddFormSubmit(event) {
 }
 
 initialCards.forEach(function (cardData) {
+  const card =new Card(cardData, cardSelector);
   const cardView = getCardElement(cardData);
   renderCard(cardView, cardListEl);
 });
