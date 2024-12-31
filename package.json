@@ -1,0 +1,12 @@
+{
+  "name": "se_project_aroundtheus",
+  "version": "1.0.0",
+  "description": "The Around The U.S. webpage is a project designed to practice when and where to apply grid and flexbox using HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
