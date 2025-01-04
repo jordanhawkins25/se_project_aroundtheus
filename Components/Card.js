@@ -26,13 +26,18 @@ class Card {
         });
       });
 
-    // likeButton.addEventListener("click", () => {
-    //   likeButton.classList.toggle("card__like-button_active");
-    // });
+    this._likeButton = this._element.querySelector(".card__like-button");
+    this._deleteButton = this._element.querySelector(".card__delete-button");
+    this._likeButton.addEventListener("click", this.toggleButtonLike);
+    this._deleteButton.addEventListener("click", this.remove);
+    // anything else you have on the setEventListener
+  }
+  toggleButtonLike() {
+    this._likeButton.toggle("card__like_button_active");
+  }
 
-    // deleteButton.addEventListener("click", () => {
-    //   cardEl.remove();
-    // });
+  remove() {
+    this._element.remove();
   }
 
   cardView() {
