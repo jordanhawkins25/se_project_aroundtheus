@@ -34,7 +34,7 @@ class Card {
   }
 
   togglelikeButton() {
-    this._likeButton.toggle("card__like_button_active");
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
   remove() {
