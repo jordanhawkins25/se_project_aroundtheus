@@ -3,6 +3,7 @@ class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._likeButton = this;
+    this._deleteButton = this;
     this._cardSelector = cardSelector;
     this._handlePreviewClick = handlePreviewClick;
   }
@@ -28,11 +29,11 @@ class Card {
 
     this._likeButton = this._element.querySelector(".card__like-button");
     this._deleteButton = this._element.querySelector(".card__delete-button");
-    this._likeButton.addEventListener("click", this.toggleButtonLike);
-    this._deleteButton.addEventListener("click", this.remove);
-    // anything else you have on the setEventListener
+    this._likeButton.addEventListener("click", () => this.togglelikeButton());
+    this._deleteButton.addEventListener("click", () => this.remove());
   }
-  toggleButtonLike() {
+
+  togglelikeButton() {
     this._likeButton.toggle("card__like_button_active");
   }
 
