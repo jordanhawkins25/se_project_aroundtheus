@@ -108,8 +108,11 @@ const validationSettings = {
 const editFormEl = profileEditModal.querySelector("#edit-profile-form");
 const addFormEl = cardAddModal.querySelector("#add-card-form");
 
-const editFormValidator = new FormValidator(validationSettings, editFormEl);
-const addFormValidator = new FormValidator(validationSettings, addFormEl);
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+const addFormValidator = new FormValidator(validationSettings, addCardForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
