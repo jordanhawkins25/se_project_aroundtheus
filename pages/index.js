@@ -121,8 +121,8 @@ const previewImage = imagePreviewModal.querySelector(".modal__image-preview");
 const previewTitle = imagePreviewModal.querySelector(".modal__image-title");
 
 function handlePreviewClick({ link, name }) {
-  previewImage.src = cardData.link;
-  previewImage.alt = cardData.name;
+  previewImage.src = link;
+  previewImage.alt = name;
   previewTitle.textContent = cardData.name;
 
   openModal(imagePreviewModal);
