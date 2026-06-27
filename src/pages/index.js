@@ -90,9 +90,9 @@ profileEditButton.addEventListener("click", () => {
   const currentProfileData = userInfo.getUserInfo();
   profileTitleInput.value = currentProfileData.name;
   profileDescriptionInput.value = currentProfileData.job;
-  editProfilePopup.openModal();
+  editProfilePopup.open();
 });
 
 cardAddButton.addEventListener("click", () => {
-  cardAddPopup.openModal();
+  cardAddPopup.open();
 });
