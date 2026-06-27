@@ -33,7 +33,7 @@ const userInfo = new UserInfo({
 const imagePopup = new PopupWithImage(".modal-preview");
 imagePopup.setEventListeners();
 
-const editProfilePopup = new ModalWithForm("#profile-modal", (formData) => {
+const editProfilePopup = new PopupWithForm("#profile-modal", (formData) => {
   userInfo.setUserInfo({
     name: formData.name,
     job: formData.description,
@@ -43,7 +43,7 @@ const editProfilePopup = new ModalWithForm("#profile-modal", (formData) => {
 
 editProfilePopup.setEventListeners();
 
-const cardAddPopup = new ModalWithForm("#add-modal", (formData) => {
+const cardAddPopup = new PopupWithForm("#add-modal", (formData) => {
   const cardElement = createCard({
     name: formData.title,
     link: formData.url,

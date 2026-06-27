@@ -2,8 +2,8 @@ import Modal from "./Popup.js";
 
 class ModalWithForm extends Modal {
   constructor(modalSelector, handleFormSubmit) {
-    super({ modalSelector });
-    this._modalForm = this._modalElement.querySelector(".modal__form");
+    super(modalSelector);
+    this._modalForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
 
     this._inputList = this._modalForm.querySelectorAll(".modal__input");
@@ -18,7 +18,7 @@ class ModalWithForm extends Modal {
   }
 
   closeModal() {
-    super.closeModal();
+    super.close();
   }
 
   setEventListeners() {
